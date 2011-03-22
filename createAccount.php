@@ -19,6 +19,6 @@ mysqli_close($db);
 ?>
 <META
  HTTP-EQUIV="refresh"
- CONTENT="0; URL =index.html">
+ CONTENT="0; URL =index.php">
 <div class="login"><form method="post" action="index.html">
 <input name="submit" type="submit" class="password" value="Click to continue" /></div>

@@ -49,7 +49,15 @@ License: Creative Commons Attribution
                     <li><a href="#">Tallest</a></li>
                 </ul>
             </li>
-            <li><a href="#">Search Parks</a></li>
+            <li><a clas="has_submenu" href="searchPak">Search Parks</a>
+			<ul>
+                	<li><a href="#">For coasters</a></li>
+                    <li><a href="#">For water rides</a></li>
+                    <li><a href="#">For family rides</a></li>
+                </ul>
+            </li>
+			
+			
             <li><a class="has_submenu" href="login.php">User Panel</a>
 				<ul>
 		<!-- These are the default options if there is no user logged in -->
