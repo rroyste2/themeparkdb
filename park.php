@@ -69,7 +69,6 @@ License: Creative Commons Attribution
 					$query = "SELECT * FROM rollercoaster r INNER JOIN general_info g ON g.Park_name = r.Park where g.Park_name = '$park'";
 					$result = mysqli_query($db, $query)or die("Error Querying Database");
                     $row = mysqli_fetch_array($result);
-					$result = mysqli_query($db, $query) or die ("Error Querying Database - park");	
 					while($row = mysqli_fetch_array($result)){
 							$park = $row['Park_Name'];
 							$city = $row['City'];
@@ -91,7 +90,7 @@ License: Creative Commons Attribution
                     		Child Price: " . $child . "<br /></h4>
                     		</p>";
                     	echo "<p>$about</p>";
-						echo "<h4><center>Rides at $park</h4>";						
+						echo "<h4><center>Rollercoasters at $park</h4>";						
    						$result = mysqli_query($db, $query) or die ("Error Querying Database - ride");
    						echo "<table id=\"parkinfo\">\n<tr><th>Name</th><th>Type</th><th>Speed</th><th>Height</th><th>Length</th></tr>\n\n";
    					while($row = mysqli_fetch_array($result)) {
