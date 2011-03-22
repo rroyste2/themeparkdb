@@ -71,23 +71,26 @@ License: Creative Commons Attribution
                     $row = mysqli_fetch_array($result);
 					$result = mysqli_query($db, $query) or die ("Error Querying Database - park");	
 					while($row = mysqli_fetch_array($result)){
+							$park = $row['Park_Name'];
 							$city = $row['City'];
 							$state = $row['State'];
 							$zip = $row['Zipcode'];
 							$adult = $row['adult_price'];
 							$child = $row['children_price'];
 							$phone = $row['Phone_Number'];
-					}
-						echo "<h1><center>" . $park . "</center><br /></h1>
+							$about = $row['about'];
+							$picture = $row['picture'];
+							$url = $row['url'];
+						}
+						echo "<h1><center><a href='$url'>" . $park . "</a></center><br /></h1>
                     	 	<p>
-                    	 	<div id=featuredparkimage>Content for  id featuredparkimage Goes Here</div>
+                    	 	<div id=featuredparkimage><img src='$picture' width='275' height='200' /></div>
                     		<h4>Location: " . $city . ", " .  $state . " " . $zip . "<br />
                     		Phone: " . $phone . "<br />
                     		Adult Price: " . $adult . "<br />
                     		Child Price: " . $child . "<br /></h4>
                     		</p>";
-                    	echo "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque venenatis sagittis enim. Maecenas ligula erat, egestas congue, varius nec, sagittis nec, purus. In neque. Morbi fermentum, nunc id pellentesque blandit, lectus velit pellentesque nisl, a condimentum est velit sed nisi. Sed libero velit, eleifend nec porttitor a, porta quis leo. In hac habitasse platea dictumst.</p>";
-						echo "</p>";
+                    	echo "<p>$about</p>";
 						echo "<h4><center>Rides at $park</h4>";						
    						$result = mysqli_query($db, $query) or die ("Error Querying Database - ride");
    						echo "<table id=\"parkinfo\">\n<tr><th>Name</th><th>Type</th><th>Speed</th><th>Height</th><th>Length</th></tr>\n\n";
