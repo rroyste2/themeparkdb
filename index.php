@@ -50,7 +50,7 @@ License: Creative Commons Attribution
                 </ul>
             </li>
             <li><a href="#">Search Parks</a></li>
-            <li><a class="has_submenu" href="#">User Panel</a>
+            <li><a class="has_submenu" href="login.php">User Panel</a>
 				<ul>
 		<!-- These are the default options if there is no user logged in -->
                     <li><a href="login.php">Log On</a></li>
@@ -61,40 +61,9 @@ License: Creative Commons Attribution
         </ul>
     </div>
     
-    <div id="slides-container" class="slides-container">
-      <div id="slides">
-            <div>
-                <div class="slide-image"><img src="images/untitled.jpg" alt="Slide #1 image" width="344" height="242" /></div>
-                <div class="slide-text">
-                    <h2>Bizarro</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque venenatis sagittis enim. Maecenas ligula erat, egestas congue, varius nec, sagittis nec, purus. In neque.</p>
-                    <p class="frontpage-button">
-                    	<a href="#">Go to Park Page</a>
-                    </p>
-
-            
-                </div>
-            </div>
-            
-          <div>
-            	<h2>Have fun with slides!</h2>
-                <p>These slides can contain anything a webpage can! HTML, Javascript, images, flash or whatever! They're completely easy to edit and add to as well, no need to bother editing or even going anywhere near some confusing Javascript files, simply add a &lt;div&gt;&lt;/div&gt; tag with your slider content to the "slides" contain - it takes just seconds to do!</p>
-                <p>These slides work using the absolutely wonderful lightweight jQuery plugin <a href="http://plugins.jquery.com/project/jFlow">jFlow</a>, originally written by Kean Loong and modified by both Mauro Belgiovine and spyka Webmaster. The script has been licensed under the open source MIT license, so feel free to play around and modify it as much or as little as you wish!</p>
-            </div>
-            
-            <div>
-                <div class="slide-image slide-image-right"><img src="images/slide-3.png" alt="Slide #3 image" /></div>
-                <div class="slide-text">
-                    <h2>Slide #3</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque venenatis sagittis enim. Maecenas ligula erat, egestas congue, varius nec, sagittis nec, purus. In neque. Curabitur at metus tincidunt dui tristique molestie. Donec porta molestie tortor. Fusce euismod consectetuer sapien. Fusce ac velit.</p>
-
-            
-                </div>
-            </div>
-		</div>
-        <div class="controls"><span class="jFlowNext"><span>Next</span></span><span class="jFlowPrev"><span>Prev</span></span></div>        
-          <div id="myController" class="hidden"><span class="jFlowControl">Slide 1</span><span class="jFlowControl">Slide 1</span><span class="jFlowControl">Slide 1</span></div>
-        </div>
+    <?php
+    	include('slides.php');
+    ?>
             
         <div id="body">            
             <div id="content">
@@ -131,22 +100,22 @@ License: Creative Commons Attribution
                     		</p>";
                     	echo "<p>$about</p>";
 						echo "<h4><center>Top Rides at $park</h4>";
-                		$query = "SELECT * FROM rollercoaster r INNER JOIN general_info g ON g.Park_name = r.Park where g.Park_id = '$id' ORDER BY RAND() LIMIT 3";
+                		$query = "SELECT * FROM rollercoaster r INNER JOIN general_info g ON g.Park_name = r.Park where g.Park_id = '$id' ORDER BY RAND() LIMIT 5";
   
   						$result = mysqli_query($db, $query)
    							or die("Error Querying Database");
 						
-   						echo "<table id=\"toprides\">\n<tr><th>Ride 1</th><th>Ride 2</th><th>Ride 3</th></tr>\n\n";
-   						echo "<tr>";
+   						echo "<table id=\"parkinfo\">\n<tr><th>Name</th><th>Type</th><th>Speed</th><th>Height</th><th>Length</th></tr>\n\n";
    						while($row = mysqli_fetch_array($result)) {
-  							$name = $row['Name'];
-  							$type = $row['Type'];
-  							$speed = $row['Speed_mph'];
-  							$height = $row['Height_ft'];
-							$length = $row['Length_min'];
-		  					echo "<td><h4>$name</h4><br />Type: $type <br />Speed: $speed mph<br />Height: $height ft<br />Length: $length min</td>";
-	   					 }
-	   					 echo "</tr></table>";
+  						$name = $row['Name'];
+  						$park = $row['Park'];
+  						$type = $row['Type'];
+						$speed = $row['Speed_mph'];
+						$height = $row['Height_ft'];
+						$length = $row['Length_min'];
+		  				echo "<tr><td>$name</td><td >$type</td><td >$speed mph</td><td >$height ft</td><td >$length min</td></tr>\n";
+	   				 }
+	   				 echo "</table>\n"; 
 					?>
                     </p>
               </div>
