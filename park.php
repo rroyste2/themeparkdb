@@ -69,26 +69,28 @@ License: Creative Commons Attribution
 					$query = "SELECT * FROM rollercoaster r INNER JOIN general_info g ON g.Park_name = r.Park where g.Park_name = '$park'";
 					$result = mysqli_query($db, $query)or die("Error Querying Database");
                     $row = mysqli_fetch_array($result);
-					$result = mysqli_query($db, $query) or die ("Error Querying Database - park");	
 					while($row = mysqli_fetch_array($result)){
+							$park = $row['Park_Name'];
 							$city = $row['City'];
 							$state = $row['State'];
 							$zip = $row['Zipcode'];
 							$adult = $row['adult_price'];
 							$child = $row['children_price'];
 							$phone = $row['Phone_Number'];
-					}
-						echo "<h1><center>" . $park . "</center><br /></h1>
+							$about = $row['about'];
+							$picture = $row['picture'];
+							$url = $row['url'];
+						}
+						echo "<h1><center><a href='$url'>" . $park . "</a></center><br /></h1>
                     	 	<p>
-                    	 	<div id=featuredparkimage>Content for  id featuredparkimage Goes Here</div>
+                    	 	<div id=featuredparkimage><img src='$picture' width='275' height='200' /></div>
                     		<h4>Location: " . $city . ", " .  $state . " " . $zip . "<br />
                     		Phone: " . $phone . "<br />
                     		Adult Price: " . $adult . "<br />
                     		Child Price: " . $child . "<br /></h4>
                     		</p>";
-                    	echo "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque venenatis sagittis enim. Maecenas ligula erat, egestas congue, varius nec, sagittis nec, purus. In neque. Morbi fermentum, nunc id pellentesque blandit, lectus velit pellentesque nisl, a condimentum est velit sed nisi. Sed libero velit, eleifend nec porttitor a, porta quis leo. In hac habitasse platea dictumst.</p>";
-						echo "</p>";
-						echo "<h4><center>Rides at $park</h4>";						
+                    	echo "<p>$about</p>";
+						echo "<h4><center>Rollercoasters at $park</h4>";						
    						$result = mysqli_query($db, $query) or die ("Error Querying Database - ride");
    						echo "<table id=\"parkinfo\">\n<tr><th>Name</th><th>Type</th><th>Speed</th><th>Height</th><th>Length</th></tr>\n\n";
    					while($row = mysqli_fetch_array($result)) {
@@ -104,48 +106,13 @@ License: Creative Commons Attribution
               </div>
         </div>
         
-        <div class="sidebar">
-            <ul>	
-               <li>
-                    <h4><span>Our <strong>Pages</strong></span></h4>
-                    <ul class="blocklist">
-                        <li><a href="parks.php">Parks</a></li>
-                        <li><a href="rides.php">Rides</a></li>
-                        <li><a href="#">search parks</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-              </li>
-                
-                <li>
-                    <h4><span>About <strong>Us</strong></span></h4>
-                    <ul>
-                        <li>
-                        	<p style="margin: 0;">Themepark database is a comprehensive guide to theme parks and rides within the united states.</p>
-                        </li>
-                    </ul>
-                </li>
-                
-                <li>
-                    <h4 class="h4"><span>Cool <strong>Sites</strong></span></h4>
-                    <ul>
-                        <li><a href="http://www.themeforest.net/?ref=spykawg" title="premium templates"><strong>ThemeForest</strong></a> - premium HTML templates, WordPress themes and PHP scripts</li>
-                        <li><a href="http://www.dreamhost.com/r.cgi?259541" title="web hosting"><strong>Web hosting</strong></a> - 50 dollars off when you use promocode <strong>awesome50</strong></li>
-                        <li><a href="http://www.4templates.com/?aff=spykawg" title="4templates"><strong>4templates</strong></a> - brilliant premium templates</li>
-                    </ul>
-                </li>
-                
-            </ul> 
-        </div>
+        <?php
+        	include('sidebar.php');
+        ?>
     	<div class="clear"></div>
-    </div>
-</div>
- <div id="footer">
-
-    <div id="footer-links">
-
-    <!-- A link to http://www.spyka.net must remain. To remove link see http://www.spyka.net/licensing -->
-            <p>&copy; ThemePark Database 2011. Website design by <a href="http://www.spyka.net">Free CSS Templates</a> | <a href="http://www.justfreetemplates.com">Free Web Templates</a></p>
-    </div>  
-</div>
+    </div></div>
+    <?php
+    	include('footerSmall.php');
+    ?>
 </body>
 </html>
