@@ -19,7 +19,7 @@ $_session ['password'] = '$password';
   $password = $_POST['password'];
 
 
-   $query = "select * from users WHERE username = '$username' AND password = ('$password')";
+   $query = "select * from users WHERE username = '$username' AND password = SHA('$password')";
    	echo $query;
    $result = mysqli_query($db, $query);
    if ($row = mysqli_fetch_array($result))
