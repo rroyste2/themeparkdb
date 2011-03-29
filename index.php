@@ -61,8 +61,8 @@ License: Creative Commons Attribution
             <li><a class="has_submenu" href="login.php">User Panel</a>
 				<ul>
 		<!-- These are the default options if there is no user logged in -->
-                    <li><a href="login.php">Log On</a></li>
-                    <li><a href="register.php">Register</a></li>
+                    <li><a href="login.html">Log On</a></li>
+                    <li><a href="register.html">Register</a></li>
                 </ul>
             </li>
             <li><a href="#">Contact</a></li>

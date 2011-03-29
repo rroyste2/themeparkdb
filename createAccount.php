@@ -11,7 +11,7 @@ $_session ['password'] = '$password';
 <?php
 include "db_connect.php";
 
-$query= "INSERT INTO users (username, password) VALUES('$username', SHA('$password'))";
+$query= "INSERT INTO users (username, password) VALUES('$username',('$password'))";
 echo $query;
 $result = mysqli_query($db, $query)
 or die("Error Querying Database2");
