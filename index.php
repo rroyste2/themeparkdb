@@ -1,4 +1,7 @@
 <?php
+session_start();
+?>
+<?php
    include('db_connect.php');
 ?>
 
@@ -30,6 +33,8 @@ License: Creative Commons Attribution
 	<div id="header">
     	<h1><a href="/">Themepark<strong>Database</strong></a></h1>
         <h2>The ultimate source for themepark and coaster information.</h2>
+		
+		
         <div class="clear"></div>
     </div>
     <div id="nav">
@@ -49,7 +54,7 @@ License: Creative Commons Attribution
                     <li><a href="#">Tallest</a></li>
                 </ul>
             </li>
-            <li><a clas="has_submenu" href="searchPak">Search Parks</a>
+            <li><a class="has_submenu" href="searchPark.php">Search Parks</a>
 			<ul>
                 	<li><a href="#">For coasters</a></li>
                     <li><a href="#">For water rides</a></li>
@@ -58,17 +63,40 @@ License: Creative Commons Attribution
             </li>
 			
 			
+			
             <li><a class="has_submenu" href="login.php">User Panel</a>
 				<ul>
 		<!-- These are the default options if there is no user logged in -->
                     <li><a href="login.html">Log On</a></li>
                     <li><a href="register.html">Register</a></li>
+					<li><a href="logout.php">Log Off</a></li>
                 </ul>
+				
+				<?php
+		if(isset($_SESSION['username'])){?>
+		<li><a class="has_submenu" href="searchPark.php">Edit Parks</a>
+			<ul>
+                	<li><a href="#">Add Park</a></li>
+                    <li><a href="#">Delete park</a></li>
+                </ul>
+            </li>
+			<?php
+			}
+			?>
+				
             </li>
             <li><a href="#">Contact</a></li>
         </ul>
-    </div>
+		
+	</div><br/>
     
+	<h2><font color= "ff7000">
+		<?php
+		if(isset($_SESSION['username'])){
+			echo "Welcome to the fun {$_SESSION['username']}!";
+}
+		?></h2>
+		
     <?php
     	include('slides.php');
     ?>

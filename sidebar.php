@@ -22,8 +22,8 @@
                 <li>
                     <h4 class="h4"><span>User <strong>Account</strong></span></h4>
                     <ul>
-                        <li><a href="login.php"><strong>Login</strong></a> - Login to your account here at <strong>themeparkDatabase</strong></li>
-                        <li><a href="register.php"><strong>Create Account</strong></a> - Create an account if you don't alreaedy have one</li>
+                        <li><a href="login.html"><strong>Login</strong></a> - Login to your account here at <strong>themeparkDatabase</strong></li>
+                        <li><a href="register.html"><strong>Create Account</strong></a> - Create an account if you don't alreaedy have one</li>
                         
                     </ul>
                 </li>

@@ -1,13 +1,6 @@
 <?php
 session_start();
 ?>
-<?php
-$username = $_POST['username'];
-$password = $_POST['password'];
-$_session ['username'] = '$username';
-$_session ['password'] = '$password';
- ?>
-
 
 
 <body>
@@ -20,19 +13,20 @@ $_session ['password'] = '$password';
 
 
    $query = "select * from users WHERE username = '$username' AND password = SHA('$password')";
-   	echo $query;
+   //	echo $query;
    $result = mysqli_query($db, $query);
    if ($row = mysqli_fetch_array($result))
    {
-   		echo "<p>Thanks for logging in $username click below to go to your page</p>\n";
-   		echo "<p><a href=\"mainPage.php\">Lets ride!</a></p>";
+   		echo "<H1>Thanks for logging in $username</H!>\n";
+   		echo "<p>Lets ride!</p>";
 		  $_SESSION ['username'] = $username;
 			$_SESSION ['password'] = $password;
 		 ?>
 		 <META
 		HTTP-EQUIV="refresh"
-		CONTENT="0; URL =userPage.php">
+		CONTENT="0; URL =index.php">
  <?php
+ 
    }
    else
     {

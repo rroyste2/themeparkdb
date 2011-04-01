@@ -7,4 +7,4 @@ session_destroy();
 ?>
 <META
 	HTTP-EQUIV="refresh"
-	CONTENT="0; URL =index.html">
+	CONTENT="0; URL =index.php">
