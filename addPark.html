@@ -1,0 +1,66 @@
+<?php
+session_start();
+?>
+<?php
+   include('db_connect.php');
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Themepark Database</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+			
+            
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/slider.js"></script>
+<script type="text/javascript" src="js/superfish.js"></script>
+
+<script type="text/javascript" src="js/custom.js"></script>
+</head>
+
+<body class="homepage">
+<div id="container"> 
+	<div id="header">
+    	<h1><a href="/">Themepark<strong>Database</strong></a></h1>
+        <h2>The ultimate source for themepark and coaster information.</h2>
+		
+		
+        <div class="clear"></div>
+    </div>
+	 <div id="body">            
+            <div id="content">
+                <div class="box">
+				
+	 <form method="post" action="createAccount.php">
+		<table>
+		<tr><td>Park name <input type = "text" name = "park" size = '50'</td></tr>
+		<tr><td>City<input type="text" name="city" size="20"/></tr>
+		<TR><TD>State<select name="state">
+					<option>AL</option>
+					<option>AK</option>
+					<option>AS</option>
+					<option>AZ</option>
+					<option>CA</option>
+					<option>NM</option>
+					<option>TX</option>
+					<option>VA</option>
+					</select></td></tr>
+					
+		<tr><td>Adult ticket price<input type="number" name="adult" min="0" max="1000" step="1" value="$" size="4"/></td></tr>
+		<tr><td>Child ticket price<input type="number" name="child" min="0" max="1000" step="1" value="$" size="4"/></td></tr>
+		<tr><td>Phone number<input type="number" name="number" min="0" max="3" step="1" size="3"/>
+		<input type="number" name="prefix" min="0" max="3"  step="1" size="3"/>
+		<input type="number" name="number" min="0" max="4" step="1" size="4"/>
+		</td></tr>
+		<tr><td>About<input type="text" name="aPrice" min="0" max="1000" step="1" size="200"/></td></tr>
+		<tr><td>Picture <input type = "text" name = "picture" size = '50'</td></tr>
+		<tr><td>URL <input type = "text" name = "url" size = '50'</td></tr>
+					
+					
+		</table>
+
+			<input type="submit" value="Add Park" name="submit" />
+	</form>
+</div>					

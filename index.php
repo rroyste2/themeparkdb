@@ -74,10 +74,10 @@ License: Creative Commons Attribution
 				
 				<?php
 		if(isset($_SESSION['username'])){?>
-		<li><a class="has_submenu" href="searchPark.php">Edit Parks</a>
+		<li><a class="has_submenu" href="index.php">Edit Parks</a>
 			<ul>
-                	<li><a href="#">Add Park</a></li>
-                    <li><a href="#">Delete park</a></li>
+                	<li><a href="addPark.html">Add Park</a></li>
+                    <li><a href="deletePark.html">Delete park</a></li>
                 </ul>
             </li>
 			<?php
