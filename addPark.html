@@ -33,10 +33,12 @@ session_start();
             <div id="content">
                 <div class="box">
 				
-	 <form method="post" action="createAccount.php">
+	 <form method="post" action="addPark.php">
 		<table>
-		<tr><td>Park name <input type = "text" name = "park" size = '50'</td></tr>
-		<tr><td>City<input type="text" name="city" size="20"/></tr>
+		<tr><td>Park name <input type = "text" name = "park" size = '50'></td></tr>
+		<tr><td>City<input type="text" name="city" size="20" id = "city"></td></tr>
+		<tr><td>Zipcode<input type="number" name="zipcode" size="5" id = "zipcode"></td></tr>
+					
 		<TR><TD>State<select name="state">
 					<option>AL</option>
 					<option>AK</option>
@@ -48,13 +50,12 @@ session_start();
 					<option>VA</option>
 					</select></td></tr>
 					
-		<tr><td>Adult ticket price<input type="number" name="adult" min="0" max="1000" step="1" value="$" size="4"/></td></tr>
-		<tr><td>Child ticket price<input type="number" name="child" min="0" max="1000" step="1" value="$" size="4"/></td></tr>
-		<tr><td>Phone number<input type="number" name="number" min="0" max="3" step="1" size="3"/>
-		<input type="number" name="prefix" min="0" max="3"  step="1" size="3"/>
-		<input type="number" name="number" min="0" max="4" step="1" size="4"/>
+		<tr><td>Adult ticket price<input type="decimal" name="adult_price" size="8"></td></tr>
+		<tr><td>Child ticket price<input type="number" name="children_price" size="8"></td></tr>
+		<tr><td>Phone number<input type="number" name="phone" min="0" max="10" step="1" size="10"/>
+		
 		</td></tr>
-		<tr><td>About<input type="text" name="aPrice" min="0" max="1000" step="1" size="200"/></td></tr>
+		<tr><td>About<input type="text" name="about" min="0" max="1000" step="1" size="200"/></td></tr>
 		<tr><td>Picture <input type = "text" name = "picture" size = '50'</td></tr>
 		<tr><td>URL <input type = "text" name = "url" size = '50'</td></tr>
 					

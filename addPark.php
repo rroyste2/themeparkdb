@@ -1,44 +1,37 @@
 <?php 
  session_start();
 ?>
-<?php
-$_session ['Park Name'] = '$park';
-$_session ['City'] = '$city';
-$_session ['State'] = '$state';
-$_session ['Zipcode'] = '$zip';
-$_session ['adult_price'] = '$adult';
-$_session ['children_price'] = '$child';
- $_session ['Phone_Number'] = '$phone';
- //need to add phone columns
-$_session ['about'] = '$about';
-$_session ['picture'] = '$picture';
-$_session ['url'] = '$url';
 
-
- ?>
  <?php
 
 include('db_connect.php');
-	$park = $ POST ['Park_Name'];
-	$city = $POST['City'];
-	$state = $POST['State'];
-	$zip = $POST['Zipcode'];
-	$adult = $POST['adult_price'];
-	$child = $POST['children_price'];
-	$phone = $POST['Phone_Number'];
-	$about = $POST['about'];
-	$picture = $POST['picture'];
-	$url = $POST['url'];
+	$park = $_POST ['park'];
+	$city = $_POST['city'];
+	$state = $_POST['state'];
+	$zipcode = $_POST['zipcode'];
+	$adult = $_POST['adult_price'];
+	$child = $_POST['children_price'];
+	$phone = $_POST['phone'];
+	$about = $_POST['about'];
+	$picture = $_POST['picture'];
+	$url = $_POST['url'];
+	
+	?>
+	adult
+	<?php
+	echo  $adult;
 
 
 
 ?>
+
 <?php
-$query= "INSERT INTO general_info (park, city,state,zip,adult,child,phone,about,picture,url) VALUES('$park', '$city','$state','$zip', '$adult', '$child', 'phone', '$about', '$picure', '$url')";
+//$query= "INSERT INTO alienReport (month, day, year, city, state, scary) VALUES('$month', '$day', '$year', '$city', '$state', '$scary')";
+$query= "INSERT INTO general_info (city, State, Zipcode, adult_price, children_price, Phone_Number, Park_Name, url, about, picture) VALUES('$city','$state','$zipcode','$adult','$child', '$phone', '$park', '$url', '$about', '$picture')";
 $result = mysqli_query($db, $query)
-or die("Error Querying Database");
+or die("Error Querying Database2");
 mysqli_close($db);
 ?>
-	 <META
-		HTTP-EQUIV="refresh"
-		CONTENT="0; URL =index.php">
+<meta http-equiv="Refresh" content="0;
+URL=http:index.php">
+
