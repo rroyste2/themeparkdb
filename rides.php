@@ -66,7 +66,7 @@ License: Creative Commons Attribution
             <div id="content">
                 <div class="box">                                  
               		<?php
-                	$query = "SELECT * FROM rollercoaster ORDER BY park";
+                	$query = "SELECT * FROM rollercoaster";
   
   					$result = mysqli_query($db, $query)
    					or die("Error Querying Database");
@@ -82,6 +82,7 @@ License: Creative Commons Attribution
 	   				 }
 	   				 echo "</table>\n"; 
                 ?>
+
               </div>
         </div>
         
