@@ -41,18 +41,10 @@ License: Creative Commons Attribution
     	<ul class="sf-menu dropdown">
         	<li class="selected"><a href="index.php">Home</a></li>
             <li><a class="has_submenu" href="parks.php">Parks</a>
-            	<ul>
-                	<li><a href="#">Top 10</a></li>
-                    <li><a href="#">By State</a></li>
-                    <li><a href="#">Another link</a></li>
-                </ul>
+            	
             </li>
             <li><a class="has_submenu" href="rides.php">Rides</a>
-            	<ul>
-                	<li><a href="#">Top 10</a></li>
-                    <li><a href="#">Fastest</a></li>
-                    <li><a href="#">Tallest</a></li>
-                </ul>
+            	
             </li>
             <li><a class="has_submenu" href="searchPark.php">Search Parks</a>
 			<ul>
@@ -161,9 +153,7 @@ License: Creative Commons Attribution
         ?>
     	<div class="clear"></div>
     </div></div>
-    <?php
-    	include('footer.php');
-    ?>
+    
 
 </body>
 </html>

@@ -3,6 +3,7 @@
                <li>
                     <h4><span>Our <strong>Pages</strong></span></h4>
                     <ul class="blocklist">
+						<li><a href="index.php">Home</a></li>
                         <li><a href="parks.php">Parks</a></li>
                         <li><a href="rides.php">Rides</a></li>
                         <li><a href="#">search parks</a></li>
