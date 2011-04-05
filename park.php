@@ -1,3 +1,6 @@
+<?php 
+ session_start();
+?>
 <?php
    include('db_connect.php');
 ?>
@@ -57,6 +60,22 @@ License: Creative Commons Attribution
                     <li><a href="register.php">Register</a></li>
                 </ul>
             </li>
+			
+							<?php
+		if(isset($_SESSION['username'])){?>
+		<li><a class="has_submenu" href="index.php">Edit Rides</a>
+			<ul>
+                	<li><a href="addRide.html">Add Ride</a></li>
+                    <li><a href="deleteRide.html">Delete Ride</a></li>
+                </ul>
+            </li>
+			<?php
+			}
+			?>
+				
+            </li>
+			
+			
             <li><a href="#">Contact</a></li>
         </ul>
     </div>
