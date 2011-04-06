@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 05, 2011 at 03:57 PM
+-- Generation Time: Apr 06, 2011 at 04:04 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -30,28 +30,33 @@ CREATE TABLE IF NOT EXISTS `familyrides` (
   `Name` varchar(40) DEFAULT NULL,
   `Length_min` int(3) DEFAULT NULL,
   `Type` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`family_id`)
+  `Height_ft` int(4) NOT NULL,
+  `Speed_mph` int(5) DEFAULT NULL,
+  PRIMARY KEY (`family_id`),
+  KEY `family_id` (`family_id`),
+  KEY `family_id_2` (`family_id`),
+  KEY `family_id_3` (`family_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `familyrides`
 --
 
-INSERT INTO `familyrides` (`family_id`, `Name`, `Length_min`, `Type`) VALUES
-(1, 'Dumbo the Flying Ele', 2, 'Spinning'),
-(2, 'Mad Tea Party', 2, 'Spinning'),
-(3, 'Space Mountain', 3, 'Thrill Ride'),
-(4, 'Astro Orbiter', 2, 'Spinning'),
-(5, 'Big Thunder Mountain RailRoad', 3, 'Thrill Ride'),
-(6, 'HallowSwings', 2, 'Swings'),
-(7, 'Gobbler Getaway', 3, 'Interactive'),
-(8, 'Scooby Doo and the Haunted Mansion', 5, 'Interactive'),
-(9, 'Avalanche', 2, 'Rollercoaster'),
-(10, 'Ghoster Coaster', 1, 'Rollercoaster'),
-(11, 'The Cat in the Hat', 5, 'Interactive'),
-(12, 'The Amazing Adventures of Spider Man', 7, '3D'),
-(13, 'Grover''s Alpine Express', 2, 'Rollercoaster'),
-(14, 'Dry Gulch Railroad', 6, 'Thrill Ride');
+INSERT INTO `familyrides` (`family_id`, `Name`, `Length_min`, `Type`, `Height_ft`, `Speed_mph`) VALUES
+(1, 'Dumbo the Flying Ele', 2, 'Spinning', 0, NULL),
+(2, 'Mad Tea Party', 2, 'Spinning', 0, NULL),
+(3, 'Space Mountain', 3, 'Thrill Ride', 0, NULL),
+(4, 'Astro Orbiter', 2, 'Spinning', 0, NULL),
+(5, 'Big Thunder Mountain RailRoad', 3, 'Thrill Ride', 0, NULL),
+(6, 'HallowSwings', 2, 'Swings', 0, NULL),
+(7, 'Gobbler Getaway', 3, 'Interactive', 0, NULL),
+(8, 'Scooby Doo and the Haunted Mansion', 5, 'Interactive', 0, NULL),
+(9, 'Avalanche', 2, 'Rollercoaster', 0, NULL),
+(10, 'Ghoster Coaster', 1, 'Rollercoaster', 0, NULL),
+(11, 'The Cat in the Hat', 5, 'Interactive', 0, NULL),
+(12, 'The Amazing Adventures of Spider Man', 7, '3D', 0, NULL),
+(13, 'Grover''s Alpine Express', 2, 'Rollercoaster', 0, NULL),
+(14, 'Dry Gulch Railroad', 6, 'Thrill Ride', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -69,7 +74,8 @@ CREATE TABLE IF NOT EXISTS `general_info` (
   `url` blob,
   `about` blob,
   `picture` blob,
-  PRIMARY KEY (`park_id`)
+  PRIMARY KEY (`park_id`),
+  KEY `park_id` (`park_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
@@ -199,6 +205,9 @@ CREATE TABLE IF NOT EXISTS `waterrides` (
   `water_id` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(20) DEFAULT NULL,
   `Length_min` decimal(5,2) DEFAULT NULL,
+  `Type` varchar(20) DEFAULT NULL,
+  `Height_ft` int(4) DEFAULT NULL,
+  `Speed_mph` int(5) DEFAULT NULL,
   PRIMARY KEY (`water_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
@@ -206,15 +215,15 @@ CREATE TABLE IF NOT EXISTS `waterrides` (
 -- Dumping data for table `waterrides`
 --
 
-INSERT INTO `waterrides` (`water_id`, `Name`, `Length_min`) VALUES
-(1, 'Shenandoah Log Flume', '3.40'),
-(2, 'Escape from Pompeii', '2.10'),
-(3, 'Thunder Canyon', '2.30'),
-(4, 'Penguin''s Blizzard R', '2.41'),
-(5, 'Congo Rapids', '4.00'),
-(6, 'Jurassic Park River ', '5.50'),
-(7, 'White Water Canyon', '5.20'),
-(8, 'Congo Falls', '3.10');
+INSERT INTO `waterrides` (`water_id`, `Name`, `Length_min`, `Type`, `Height_ft`, `Speed_mph`) VALUES
+(1, 'Shenandoah Log Flume', '3.40', 'water', NULL, NULL),
+(2, 'Escape from Pompeii', '2.10', 'water', NULL, NULL),
+(3, 'Thunder Canyon', '2.30', 'water', NULL, NULL),
+(4, 'Penguin''s Blizzard R', '2.41', 'water', NULL, NULL),
+(5, 'Congo Rapids', '4.00', 'water', NULL, NULL),
+(6, 'Jurassic Park River ', '5.50', 'water', NULL, NULL),
+(7, 'White Water Canyon', '5.20', 'water', NULL, NULL),
+(8, 'Congo Falls', '3.10', 'water', NULL, NULL);
 
 -- --------------------------------------------------------
 
