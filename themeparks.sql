@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 06, 2011 at 04:04 PM
+-- Generation Time: Apr 06, 2011 at 05:18 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -75,8 +75,11 @@ CREATE TABLE IF NOT EXISTS `general_info` (
   `about` blob,
   `picture` blob,
   PRIMARY KEY (`park_id`),
-  KEY `park_id` (`park_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+  KEY `park_id` (`park_id`),
+  KEY `park_id_2` (`park_id`),
+  KEY `park_id_3` (`park_id`),
+  KEY `park_id_4` (`park_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `general_info`
@@ -102,16 +105,16 @@ INSERT INTO `general_info` (`park_id`, `City`, `State`, `adult_price`, `children
 --
 
 CREATE TABLE IF NOT EXISTS `parks` (
-  `park_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`park_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `parks`
 --
 
-INSERT INTO `parks` (`park_id`, `name`) VALUES
+INSERT INTO `parks` (`id`, `name`) VALUES
 (1, 'Hershey Park'),
 (2, 'Busch Gardens'),
 (3, 'Cedar Point'),
@@ -181,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
   PRIMARY KEY (`userId`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `users`
@@ -193,7 +196,8 @@ INSERT INTO `users` (`userId`, `username`, `password`) VALUES
 (3, 'rroyste2', '70ba8f0f0ae07bdc950b'),
 (4, '', 'da39a3ee5e6b4b0d3255'),
 (5, 'rroyste2', '70ba8f0f0ae07bdc950b'),
-(6, 'rroyste2', '70ba8f0f0ae07bdc950b');
+(6, 'rroyste2', '70ba8f0f0ae07bdc950b'),
+(7, 'rroyste2', '70ba8f0f0ae07bdc950b');
 
 -- --------------------------------------------------------
 
@@ -253,6 +257,16 @@ INSERT INTO `zipcode` (`zip_id`, `zipcode`) VALUES
 (9, 32830),
 (10, 23047),
 (11, 20721);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `general_info`
+--
+ALTER TABLE `general_info`
+  ADD CONSTRAINT `general_info_ibfk_1` FOREIGN KEY (`park_id`) REFERENCES `parks` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
