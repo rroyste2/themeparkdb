@@ -34,24 +34,25 @@ session_start();
                 <div class="box">
 				
 	 <form method="post" action="addRide.php">
-		<table>
-			<tr><td>Type of ride to add</td><td> 
-					
-					<select name="rideType">
+	<table>
+	<tr><td>Ride name <input type = "text" name = "name" size = '50'></td></tr>
+	<tr><td>Park name<input type="text" name="park" size="20" id = "park"></td></tr>
+	<tr><td>Type of ride to add</td><td> 
+					<select name="type">
 					<option>Roller Coaster</option>
 					<option>Water Ride</option>
 					<option>Family Ride</option>
-					
 					</select></td></tr>
 		
+	<tr><td>Speed<input type="int" name="speed" size="20" id = "speed"></td></tr>
+	<tr><td>Height<input type="int" name="height" size="20" id = "height"></td></tr>
+	<tr><td>Length<input type="int" name="length" size="20" id = "length"></td></tr>
+	</td></tr>
+	
 	</table>
-	
-	
-	
-	
-
-			<input type="submit" value="Add Ride" name="submit" />
+		<input type="submit" value="Add Ride" name="submit" />
 	</form>	
+	
 	
 	
 	

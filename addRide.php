@@ -1,66 +1,35 @@
 <?php 
- session_start();
+session_start();
 ?>
 
- <?php
-
-include('db_connect.php');
-	$rideType = $_POST ['rideType'];
-	
-	
-	?>
-
 <?php
-	 if ($rideType == "Roller Coaster")
-	 { ?>
-	
-	 <form method="post" action="addRide2.php">
-		<table>
-		<tr><td>Coaster name <input type = "text" name = "name" size = '50'></td></tr>
-		<tr><td>Type<input type="text" name="type" size="20" id = "type"></td></tr>
-		<tr><td>Speed<input type="number" name="speed" size="20" id = "speed"></td></tr>
-		<tr><td>Height<input type="number" name="height" size="20" id = "height"></td></tr>
-		<tr><td>Length<input type="number" name="length" size="20" id = "length"></td></tr>
-		</td></tr>
-						
-		</table>
-
-		<input type="submit" value="Add Ride" name="submit" />
-	</form>
-	
+include('db_connect.php');
+$park = $_POST ['park'];
+	$type = $_POST ['type'];
+	$name = $_POST ['name'];
+	$type = $_POST['type'];
+	$speed = $_POST['speed'];
+	$height = $_POST['height'];
+	$length = $_POST['length'];
+	?>
 	<?php
+ if  ($type == "Roller Coaster") {
+	?>coaster if<?php
+	$query= "INSERT INTO rollercoaster (name, park, type, speed_mph, height_ft, length_min) VALUES('$name','$park','$type','$speed','$height','$length')";
+		//$query= "INSERT INTO alienReport (month, day, year, city, state, scary) VALUES('$month', '$day', '$year', '$city', '$state', '$scary')";
+	$result = mysqli_query($db, $query)
+	or die("Error Querying Database3");
+	mysqli_close($db);
+}
+
+else if (rideType == "Family Ride") {
+	?>
 	
-	 }
-	 else if  (rideType == "Water Ride") {
-	 ?>
-	 <form method="post" action="addRide2.php">
-		<table>
-		<tr><td>Ride name <input type = "text" name = "name" size = '50'></td></tr>
-		<tr><td>Length<input type="number" name="length" size="20" id = "length"></td></tr>
-		</td></tr>
-						
-		</table>
-
-		<input type="submit" value="Add Ride" name="submit" />
 	</form>
-	 <?php
-	 }
-	 
-	 else if (rideType == "Family Ride") {
-	 ?>
-	 <form method="post" action="addRide2.php">
-		<table>
-		<tr><td>Ride name <input type = "text" name = "name" size = '50'></td></tr>
-		<tr><td>Length<input type="number" name="length" size="20" id = "length"></td></tr>
-		<tr><td>Type<input type="text" name="type" size="20" id = "type"></td></tr>
-		</td></tr>
-						
-		</table>
-
-		<input type="submit" value="Add Ride" name="submit" />
-	</form>
-	 <?php
-	 }
-	 ?>
-
+	<?php
+}
+?>
+<?php
+	echo $type;
+	?>
 
