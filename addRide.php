@@ -24,11 +24,18 @@ $park = $_POST ['park'];
 
 else if ($type == "Water Ride") {
 ?> waterride if <?php
-	$query= "INSERT INTO waterrides (Name) VALUES('$name')";
-	
+	$query= "INSERT INTO waterrides (Name, Type, Speed_mph, Height_ft, Length_min) VALUES('$name','$type','$speed','$height','$length')";
+	$result = mysqli_query($db, $query)
+	or die("Error Querying Database");
+	mysqli_close($db);
 	}
 else if ($type == "Family Ride") {
-	$query= "INSERT INTO waterrides (name, park, type, speed_mph, height_ft, length_min) VALUES('$name','$park','$type','$speed','$height','$length')";
+?> familyride if <?php
+	$query= "INSERT INTO familyrides (Name, Type, Speed_mph, Height_ft, Length_min) VALUES('$name','$type','$speed','$height','$length')";
+	$result = mysqli_query($db, $query)
+	or die("Error Querying Database5");
+	mysqli_close($db);
+	
 	}
 	?>
 	
