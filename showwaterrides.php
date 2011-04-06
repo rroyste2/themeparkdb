@@ -42,11 +42,7 @@ License: Creative Commons Attribution
             	
             </li>
             <li class="selected"><a class="has_submenu" href="rides.php">Rides</a>
-            	<ul>
-                	<li><a href="showcoasters.php">Coasters</a></li>
-                    <li><a href="showwaterrides.php">Water rides</a></li>
-                    <li><a href="showfamilyrides.php">Family rides</a></li>
-                </ul>
+            	
             </li>
             <li><a href="#">Search Parks</a></li>
             <li><a class="has_submenu" href="#">User Panel</a>
@@ -81,7 +77,7 @@ License: Creative Commons Attribution
             <div id="content">
                 <div class="box">                                  
               		<?php
-                	$query = "SELECT * FROM rollercoaster";
+                	$query = "SELECT * FROM waterrides";
   
   					$result = mysqli_query($db, $query)
    					or die("Error Querying Database");

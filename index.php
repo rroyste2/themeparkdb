@@ -43,8 +43,12 @@ License: Creative Commons Attribution
             <li><a class="has_submenu" href="parks.php">Parks</a>
             	
             </li>
-            <li><a class="has_submenu" href="rides.php">Rides</a>
-            	
+            <li><a class="has_submenu" href="index.php">Rides</a>
+            	<ul>
+                	<li><a href="showcoasters.php">Coasters</a></li>
+                    <li><a href="showwaterrides.php">Water rides</a></li>
+                    <li><a href="showfamilyrides.php">Family rides</a></li>
+                </ul>
             </li>
             <li><a class="has_submenu" href="searchPark.php">Search Parks</a>
 			<ul>

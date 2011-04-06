@@ -15,11 +15,15 @@ $park = $_POST ['park'];
 	<?php
  if  ($type == "Roller Coaster") {
 	
-	$query= "INSERT INTO rollercoaster (name, park, type, speed_mph, height_ft, length_min) VALUES('$name','$park','$type','$speed','$height','$length')";
+	$query= "INSERT INTO rollercoaster (name, type, speed_mph, height_ft, length_min) VALUES('$name','$type','$speed','$height','$length')";
 		//$query= "INSERT INTO alienReport (month, day, year, city, state, scary) VALUES('$month', '$day', '$year', '$city', '$state', '$scary')";
 	$result = mysqli_query($db, $query)
 	or die("Error Querying Database3");
 	mysqli_close($db);
+	?>
+	<meta http-equiv="Refresh" content="0;
+URL=http:index.php">
+<?php
 }
 
 else if ($type == "Water Ride") {
@@ -28,6 +32,10 @@ else if ($type == "Water Ride") {
 	$result = mysqli_query($db, $query)
 	or die("Error Querying Database");
 	mysqli_close($db);
+	?>
+	<meta http-equiv="Refresh" content="0;
+URL=http:index.php">
+<?php
 	}
 else if ($type == "Family Ride") {
 ?> familyride if <?php
@@ -35,15 +43,13 @@ else if ($type == "Family Ride") {
 	$result = mysqli_query($db, $query)
 	or die("Error Querying Database5");
 	mysqli_close($db);
-	
+	?>
+	<meta http-equiv="Refresh" content="0;
+URL=http:index.php">
+	<?php
 	}
 	?>
 	
 	</form>
-	
 
-
-<?php
-	echo $type;
-	?>
 
