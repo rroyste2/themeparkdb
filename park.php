@@ -39,18 +39,10 @@ License: Creative Commons Attribution
     	<ul class="sf-menu dropdown">
         	<li><a href="index.php">Home</a></li>
             <li class="selected"><a class="has_submenu" href="parks.php">Parks</a>
-            	<ul>
-                	<li><a href="#">Top 10</a></li>
-                    <li><a href="#">By State</a></li>
-                    <li><a href="#">Another link</a></li>
-                </ul>
+            
             </li>
             <li><a class="has_submenu" href="rides.php">Rides</a>
-            	<ul>
-                	<li><a href="#">Top 10</a></li>
-                    <li><a href="#">Fastest</a></li>
-                    <li><a href="#">Tallest</a></li>
-                </ul>
+            	
             </li>
             <li><a href="#">Search Parks</a></li>
             <li><a class="has_submenu" href="#">User Panel</a>

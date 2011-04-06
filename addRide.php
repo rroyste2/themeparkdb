@@ -9,39 +9,58 @@ include('db_connect.php');
 	
 	
 	?>
-	type
-	<?php
-	echo  $rideType;
-
-
-
-?>
 
 <?php
-	 if (rideType == "Roller Coaster")
+	 if ($rideType == "Roller Coaster")
 	 { ?>
-	 <form>
-	 <tr><td>Ride name <input type = "text" name = "ride" size = '50'></td></tr>
-	 <?php
+	
+	 <form method="post" action="addRide2.php">
+		<table>
+		<tr><td>Coaster name <input type = "text" name = "name" size = '50'></td></tr>
+		<tr><td>Type<input type="text" name="type" size="20" id = "type"></td></tr>
+		<tr><td>Speed<input type="number" name="speed" size="20" id = "speed"></td></tr>
+		<tr><td>Height<input type="number" name="height" size="20" id = "height"></td></tr>
+		<tr><td>Length<input type="number" name="length" size="20" id = "length"></td></tr>
+		</td></tr>
+						
+		</table>
+
+		<input type="submit" value="Add Ride" name="submit" />
+	</form>
+	
+	<?php
+	
 	 }
 	 else if  (rideType == "Water Ride") {
 	 ?>
-	 water
+	 <form method="post" action="addRide2.php">
+		<table>
+		<tr><td>Ride name <input type = "text" name = "name" size = '50'></td></tr>
+		<tr><td>Length<input type="number" name="length" size="20" id = "length"></td></tr>
+		</td></tr>
+						
+		</table>
+
+		<input type="submit" value="Add Ride" name="submit" />
+	</form>
 	 <?php
 	 }
 	 
 	 else if (rideType == "Family Ride") {
 	 ?>
-	 family
+	 <form method="post" action="addRide2.php">
+		<table>
+		<tr><td>Ride name <input type = "text" name = "name" size = '50'></td></tr>
+		<tr><td>Length<input type="number" name="length" size="20" id = "length"></td></tr>
+		<tr><td>Type<input type="text" name="type" size="20" id = "type"></td></tr>
+		</td></tr>
+						
+		</table>
+
+		<input type="submit" value="Add Ride" name="submit" />
+	</form>
 	 <?php
 	 }
 	 ?>
 
 
-<?php
-//$query= "INSERT INTO alienReport (month, day, year, city, state, scary) VALUES('$month', '$day', '$year', '$city', '$state', '$scary')";
-$query= "INSERT INTO general_info (city, State, Zipcode, adult_price, children_price, Phone_Number, Park_Name, url, about, picture) VALUES('$city','$state','$zipcode','$adult','$child', '$phone', '$park', '$url', '$about', '$picture')";
-$result = mysqli_query($db, $query)
-or die("Error Querying Database2");
-mysqli_close($db);
-?>
