@@ -14,7 +14,7 @@ $park = $_POST ['park'];
 	?>
 	<?php
  if  ($type == "Roller Coaster") {
-	?>coaster if<?php
+	
 	$query= "INSERT INTO rollercoaster (name, park, type, speed_mph, height_ft, length_min) VALUES('$name','$park','$type','$speed','$height','$length')";
 		//$query= "INSERT INTO alienReport (month, day, year, city, state, scary) VALUES('$month', '$day', '$year', '$city', '$state', '$scary')";
 	$result = mysqli_query($db, $query)
@@ -22,13 +22,20 @@ $park = $_POST ['park'];
 	mysqli_close($db);
 }
 
-else if (rideType == "Family Ride") {
+else if ($type == "Water Ride") {
+?> waterride if <?php
+	$query= "INSERT INTO waterrides (Name) VALUES('$name')";
+	
+	}
+else if ($type == "Family Ride") {
+	$query= "INSERT INTO waterrides (name, park, type, speed_mph, height_ft, length_min) VALUES('$name','$park','$type','$speed','$height','$length')";
+	}
 	?>
 	
 	</form>
-	<?php
-}
-?>
+	
+
+
 <?php
 	echo $type;
 	?>
