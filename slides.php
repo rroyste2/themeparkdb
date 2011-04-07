@@ -26,7 +26,7 @@
                 <div class="slide-image slide-image-right"><img src="images/theBeast.jpg" width="344" height="242" /></div>
                 <div class="slide-text">
                     <h2>The Beast</h2>
-                    <p>The Beast is a wooden roller coaster located at Kings Island in Mason, Ohio. It is currently the longest roller coaster in the USA and the longest wooden roller coaster in the world. It was also one of the fastest and tallest roller coasters in the world when it opened in spring 1979.
+                    <p>The Beast is a wooden roller coaster located at Kings Island in Mason, Ohio. It is currently the longest roller coaster in the world. It was also one of the fastest and tallest roller coasters in the world when it opened in spring 1979.
 						The Beast has been constantly rated as one of the top roller coasters in the world since it first opened. To date, over 40 million riders have ridden The Beast. (wikipedia)</p>
 					<p class="frontpage-button">
                     	<a href="park.php?id=Kings Island">Go to Park Page</a>

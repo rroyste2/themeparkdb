@@ -31,37 +31,28 @@ License: Creative Commons Attribution
 <body class="noheader">
 <div id="container">
 	<div id="header">
-    	<h1><a href="/">Themepark<strong>Database</strong></a></h1>
+    	<h1><a href="index.php">Themepark<strong>Database</strong></a></h1>
         <h2>The ultimate source for themepark and coaster information.</h2>
+		
+		
         <div class="clear"></div>
     </div>
     <div id="nav">
     	<ul class="sf-menu dropdown">
         	<li><a href="index.php">Home</a></li>
-            <li class="selected"><a class="has_submenu" href="parks.php">Parks</a>
-            
-            </li>
+            <li class="selected"><a " href="parks.php">Parks</a></li>
             <li><a class="has_submenu" href="rides.php">Rides</a>
             	<ul>
-                	<li><a href="showcoasters.php">Coasters</a></li>
+                	<li><a href="rides.php">Roller Coasters</a></li>
                     <li><a href="showwaterrides.php">Water rides</a></li>
                     <li><a href="showfamilyrides.php">Family rides</a></li>
                 </ul>
             </li>
-            <li><a href="#">Search Parks</a></li>
-            <li><a class="has_submenu" href="#">User Panel</a>
-				<ul>
-		<!-- These are the default options if there is no user logged in -->
-                    <li><a href="login.php">Log On</a></li>
-                    <li><a href="register.php">Register</a></li>
-                </ul>
-            </li>
-
-			
-			
-            <li><a href="#">Contact</a></li>
+            <li><a href="searchPark.php">Search Parks</a></li>
+            <li><a href="about.php">About Us</a></li>
         </ul>
-    </div>
+		
+	</div>
 
         <div id="body">            
             <div id="content">
