@@ -68,11 +68,12 @@ License: Creative Commons Attribution
                 <div class="box">                                  
               <?php
                   	$park = $_GET['id'];
-					$query = "SELECT * FROM rollercoaster r INNER JOIN general_info g ON g.Park_name = r.Park where g.Park_name = '$park'";
-					$result = mysqli_query($db, $query)or die("Error Querying Database");
+					//$query = "SELECT * FROM rollercoaster r INNER JOIN general_info g ON g.Park_name = r.Park where g.Park_name = '$park'";
+					$query = " SELECT * FROM parks p INNER JOIN general_info g ON p.id = g.park_id WHERE p.name = '$park'";
+					$result = mysqli_query($db, $query)or die("Error Querying Database6");
                     $row = mysqli_fetch_array($result);
 					while($row = mysqli_fetch_array($result)){
-							$park = $row['Park_Name'];
+							$park = $row['name'];
 							$city = $row['City'];
 							$state = $row['State'];
 							$zip = $row['Zipcode'];
