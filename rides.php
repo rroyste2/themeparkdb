@@ -48,7 +48,7 @@ License: Creative Commons Attribution
                     <li><a href="showfamilyrides.php">Family rides</a></li>
                 </ul>
             </li>
-            <li><a href="#">Search Parks</a></li>
+            <li><a href="searchPark.php">Search Parks</a></li>
             <li><a class="has_submenu" href="#">User Panel</a>
 				<ul>
 		<!-- These are the default options if there is no user logged in -->
