@@ -1,55 +1,97 @@
-<?php 
+<?php
 session_start();
 ?>
-
 <?php
-include('db_connect.php');
-$park = $_POST ['park'];
-	$type = $_POST ['type'];
-	$name = $_POST ['name'];
-	$type = $_POST['type'];
-	$speed = $_POST['speed'];
-	$height = $_POST['height'];
-	$length = $_POST['length'];
-	?>
-	<?php
- if  ($type == "Roller Coaster") {
+   include('db_connect.php');
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Themepark Database</title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+			
+            
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/slider.js"></script>
+<script type="text/javascript" src="js/superfish.js"></script>
+
+<script type="text/javascript" src="js/custom.js"></script>
+
+<!--
+widget, a free CSS web template by spyka Webmaster (www.spyka.net)
+
+Download: http://www.spyka.net/web-templates/widget/
+
+License: Creative Commons Attribution
+//-->
+</head>
+
+<body class="noheader">
+<div id="container"> 
+	<div id="header">
+    	<h1><a href="index.php">Themepark<strong>Database</strong></a></h1>
+        <h2>The ultimate source for themepark and coaster information.</h2>
+		
+		
+        <div class="clear"></div>
+    </div>
+    <div id="nav">
+    	<ul class="sf-menu dropdown">
+        	<li class="selected"><a href="index.php">Home</a></li>
+            <li><a " href="parks.php">Parks</a></li>
+            <li><a class="has_submenu" href="rides.php">Rides</a>
+            	<ul>
+                	<li><a href="rides.php">Roller Coasters</a></li>
+                    <li><a href="showwaterrides.php">Water rides</a></li>
+                    <li><a href="showfamilyrides.php">Family rides</a></li>
+                </ul>
+            </li>
+            <li><a href="searchPark.php">Search Parks</a></li>
+            <li><a href="about.php">About Us</a></li>
+        </ul>
+		
+	</div>
 	
-	$query= "INSERT INTO rollercoaster (name, type, speed_mph, height_ft, length_min) VALUES('$name','$type','$speed','$height','$length')";
-		//$query= "INSERT INTO alienReport (month, day, year, city, state, scary) VALUES('$month', '$day', '$year', '$city', '$state', '$scary')";
-	$result = mysqli_query($db, $query)
-	or die("Error Querying Database3");
-	mysqli_close($db);
-	?>
-	<meta http-equiv="Refresh" content="0;
-URL=http:index.php">
-<?php
-}
-
-else if ($type == "Water Ride") {
-?> waterride if <?php
-	$query= "INSERT INTO waterrides (Name, Type, Speed_mph, Height_ft, Length_min) VALUES('$name','$type','$speed','$height','$length')";
-	$result = mysqli_query($db, $query)
-	or die("Error Querying Database");
-	mysqli_close($db);
-	?>
-	<meta http-equiv="Refresh" content="0;
-URL=http:index.php">
-<?php
-	}
-else if ($type == "Family Ride") {
-?> familyride if <?php
-	$query= "INSERT INTO familyrides (Name, Type, Speed_mph, Height_ft, Length_min) VALUES('$name','$type','$speed','$height','$length')";
-	$result = mysqli_query($db, $query)
-	or die("Error Querying Database5");
-	mysqli_close($db);
-	?>
-	<meta http-equiv="Refresh" content="0;
-URL=http:index.php">
-	<?php
-	}
-	?>
+	 <div id="body">            
+            <div id="content">
+                <div class="box">                                  
+                    <p>
+	 <form method="post" action="aRide.php">
+	<table>
+	<tr><td>Ride name <input type = "text" name = "name" size = '50'></td></tr>
+	<tr><td>Park name <input type="text" name="park" size="20" id = "park"></td></tr>
+	<tr><td>Type of ride to add 
+					<select name="type">
+					<option>Roller Coaster</option>
+					<option>Water Ride</option>
+					<option>Family Ride</option>
+					</select></td></tr>
+		
+	<tr><td>Speed <input type="int" name="speed" size="20" id = "speed"></td></tr>
+	<tr><td>Height <input type="int" name="height" size="20" id = "height"></td></tr>
+	<tr><td>Length <input type="int" name="length" size="20" id = "length"></td></tr>
 	
-	</form>
+	</table>
+		<input type="submit" value="Add Ride" name="submit" />
+	</form>	
+</div>
+        </div>
+        <?php
+        	include('sidebar.php');
+        ?>
+    	<div class="clear"></div>
+    	
+    </div></div>
+    <?php
+    		include('footerSmall.php');
+    	?>
 
-
+</body>
+</html>
+	
+	
+	
+	
+	

@@ -63,11 +63,12 @@ License: Creative Commons Attribution
                 <div class="box">                                  
                     <p>
                       <?php
+                      	$rows = true;
                     	$query = "SELECT park_id FROM general_info ORDER BY RAND() LIMIT 1";
                     	$result = mysqli_query($db, $query)or die("Error Querying Database");
                     	$row = mysqli_fetch_array($result);
                     	$id = $row['park_id'];
-						$query = "SELECT * from general_info g INNER JOIN parks p ON g.park_id = p.id INNER JOIN zipcode z ON p.id = z.zip_id ";
+						$query = "SELECT * from general_info g INNER JOIN parks p ON g.park_id = p.id INNER JOIN zipcode z ON p.id = z.zip_id WHERE g.park_id = '$id' ";
 						$result = mysqli_query($db, $query) or die ("Error Querying Database - feature");	
 						while($row = mysqli_fetch_array($result)){
 							$park = $row['name'];
@@ -91,7 +92,69 @@ License: Creative Commons Attribution
                     		Adult Price: " . $adult . "<br />
                     		Child Price: " . $child . "<br /></h4>
                     		</p>";
-                    	echo "<p>$about</p>";
+                    	echo "<p>$about</p><br />";
+                    	$query = "SELECT * from rollercoaster r WHERE r.park_id = '$id'";
+   						$result = mysqli_query($db, $query) or die ("Error Querying Database - ride");
+   						if ($result){
+   						
+   					
+   					while($row = mysqli_fetch_array($result)) {
+   						while ($rows){
+   						echo "<h4><center>Rollercoasters at $park</h4>";
+   						echo "<table id=\"rollercoasters\">\n<tr><th>Name</th><th>Type</th><th>Speed</th><th>Height</th><th>Length</th></tr>\n\n";
+   						$rows = false;
+   						}
+  						$name = $row['coaster_name'];
+  						$type = $row['Type'];
+						$speed = $row['Speed_mph'];
+						$height = $row['Height_ft'];
+						$length = $row['Length_min'];
+		  				echo "<tr><td>$name</td><td >$type</td><td >$speed mph</td><td >$height ft</td><td >$length min</td></tr>\n";
+	   				 }
+	   				 echo "</table>\n<br />";
+	   				 }
+	   				 $query = "SELECT * from familyrides f WHERE f.park_id = '$id'";
+   						$result = mysqli_query($db, $query) or die ("Error Querying Database - fride");
+   						$rows = true;
+   						if ($result){
+   						
+   					
+   					while($row = mysqli_fetch_array($result)) {
+   						while ($rows){
+   						echo "<h4><center>Family Rides at $park</h4>";
+   						echo "<table id=\"familyrides\">\n<tr><th>Name</th><th>Type</th><th>Length</th></tr>\n\n";
+   						$rows = false;
+   						}
+  						$name = $row['ride_name'];
+  						$type = $row['Type'];
+						$speed = $row['Speed_mph'];
+						$height = $row['Height_ft'];
+						$length = $row['Length_min'];
+		  				echo "<tr><td>$name</td><td >$type</td><td >$length min</td></tr>\n";
+	   				 }
+	   				 echo "</table>\n<br />";
+	   				 }
+	   				 $query = "SELECT * from waterrides w WHERE w.park_id = '$id'";
+   						$result = mysqli_query($db, $query) or die ("Error Querying Database - fride");
+   						$rows = true;
+   						if ($result){
+   						
+   					
+   					while($row = mysqli_fetch_array($result)) {
+   						while ($rows){
+   						echo "<h4><center>Water Rides at $park</h4>";
+   						echo "<table id=\"familyrides\">\n<tr><th>Name</th><th>Type</th><th>Length</th></tr>\n\n";
+   						$rows = false;
+   						}
+  						$name = $row['ride_name'];
+  						$type = $row['Type'];
+						$speed = $row['Speed_mph'];
+						$height = $row['Height_ft'];
+						$length = $row['Length_min'];
+		  				echo "<tr><td>$name</td><td >$type</td><td >$length min</td></tr>\n";
+	   				 }
+	   				 echo "</table>\n<br />";
+	   				 }
 						
 					?>
                     </p>

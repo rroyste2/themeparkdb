@@ -59,12 +59,13 @@ License: Creative Commons Attribution
                 <div class="box">                                  
                 <?php
                 	//$query = "SELECT * FROM general_info ORDER BY Park_Name";
-					$query = "SELECT name, City, State, adult_price, children_price, Phone_Number FROM parks INNER JOIN general_info g ON g.park_id = parks.id";
+					$query = "SELECT name, City, State, adult_price, children_price, Phone_Number, park_id FROM parks INNER JOIN general_info g ON g.park_id = parks.id ORDER BY name";
   
   					$result = mysqli_query($db, $query)
    					or die("Error Querying Database1");
    					echo "<table id=\"parkinfo\">\n<tr><th>Name</th><th>Location</th><th>Adult Price</th><th>Child Price</th><th>Phone Number</th></tr>\n\n";
    					while($row = mysqli_fetch_array($result)) {
+  						$id = $row['park_id'];
   						$name = $row['name'];
   						$city = $row['City'];
   						$state = $row['State'];
@@ -72,7 +73,7 @@ License: Creative Commons Attribution
 						$adult = $row['adult_price'];
 						$child = $row['children_price'];
 						$phone = $row['Phone_Number'];
-		  				echo "<tr><td><a href = \"park.php?id=" . $name . "\">$name</a></td><td >$city, $state $zip</td><td >$adult</td><td >$child</td><td >$phone</td></tr>\n";
+		  				echo "<tr><td><a href = \"park.php?id=" . $id . "\">$name</a></td><td >$city, $state $zip</td><td >$adult</td><td >$child</td><td >$phone</td></tr>\n";
 	   				 }
 	   				 echo "</table>\n"; 
                 ?>

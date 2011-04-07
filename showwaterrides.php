@@ -58,19 +58,20 @@ License: Creative Commons Attribution
             <div id="content">
                 <div class="box">                                  
               		<?php
-                	$query = "SELECT * FROM waterrides";
+                	$query = "SELECT * FROM waterrides INNER JOIN parks p ON p.id = park_id";
   
   					$result = mysqli_query($db, $query)
    					or die("Error Querying Database");
-   					echo "<table id=\"parkinfo\">\n<tr><th>Name</th><th>Park</th><th>Type</th><th>Speed</th><th>Height</th><th>Length</th></tr>\n\n";
+   					echo "<table id=\"parkinfo\">\n<tr><th>Name</th><th>Park</th><th>Type</th><th>Length</th></tr>\n\n";
    					while($row = mysqli_fetch_array($result)) {
-  						$name = $row['Name'];
-  						$park = $row['Park'];
+  						$name = $row['ride_name'];
+  						$park = $row['name'];
   						$type = $row['Type'];
 						$speed = $row['Speed_mph'];
 						$height = $row['Height_ft'];
 						$length = $row['Length_min'];
-		  				echo "<tr><td>$name</td><td ><a href = \"park.php?id=" . $park . "\">$park</a></td><td >$type</td><td >$speed mph</td><td >$height ft</td><td >$length min</td></tr>\n";
+						$id = $row['id'];
+		  				echo "<tr><td>$name</td><td ><a href = \"park.php?id=" . $id . "\">$park</a></td><td >$type</td><td >$length min</td></tr>\n";
 	   				 }
 	   				 echo "</table>\n"; 
                 ?>
