@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 06, 2011 at 09:46 PM
+-- Generation Time: Apr 06, 2011 at 11:44 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -12,6 +12,7 @@ DROP DATABASE IF EXISTS themeparks;
 CREATE DATABASE IF NOT EXISTS themeparks;
 GRANT ALL PRIVILEGES ON themeparks.* to 'themeguru'@'localhost' identified by 'parks';
 USE themeparks;
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -35,31 +36,31 @@ CREATE TABLE IF NOT EXISTS `familyrides` (
   `Type` varchar(20) DEFAULT NULL,
   `Height_ft` int(4) NOT NULL,
   `Speed_mph` int(5) DEFAULT NULL,
+  `park_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`family_id`),
   KEY `family_id` (`family_id`),
-  KEY `family_id_2` (`family_id`),
-  KEY `family_id_3` (`family_id`)
+  KEY `park_id` (`park_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `familyrides`
 --
 
-INSERT INTO `familyrides` (`family_id`, `Name`, `Length_min`, `Type`, `Height_ft`, `Speed_mph`) VALUES
-(1, 'Dumbo the Flying Ele', 2, 'Spinning', 0, NULL),
-(2, 'Mad Tea Party', 2, 'Spinning', 0, NULL),
-(3, 'Space Mountain', 3, 'Thrill Ride', 0, NULL),
-(4, 'Astro Orbiter', 2, 'Spinning', 0, NULL),
-(5, 'Big Thunder Mountain RailRoad', 3, 'Thrill Ride', 0, NULL),
-(6, 'HallowSwings', 2, 'Swings', 0, NULL),
-(7, 'Gobbler Getaway', 3, 'Interactive', 0, NULL),
-(8, 'Scooby Doo and the Haunted Mansion', 5, 'Interactive', 0, NULL),
-(9, 'Avalanche', 2, 'Rollercoaster', 0, NULL),
-(10, 'Ghoster Coaster', 1, 'Rollercoaster', 0, NULL),
-(11, 'The Cat in the Hat', 5, 'Interactive', 0, NULL),
-(12, 'The Amazing Adventures of Spider Man', 7, '3D', 0, NULL),
-(13, 'Grover''s Alpine Express', 2, 'Rollercoaster', 0, NULL),
-(14, 'Dry Gulch Railroad', 6, 'Thrill Ride', 0, NULL);
+INSERT INTO `familyrides` (`family_id`, `Name`, `Length_min`, `Type`, `Height_ft`, `Speed_mph`, `park_id`) VALUES
+(1, 'Dumbo the Flying Ele', 2, 'Spinning', 0, NULL, 9),
+(2, 'Mad Tea Party', 2, 'Spinning', 0, NULL, 9),
+(3, 'Space Mountain', 3, 'Thrill Ride', 0, NULL, 9),
+(4, 'Astro Orbiter', 2, 'Spinning', 0, NULL, 9),
+(5, 'Big Thunder Mountain RailRoad', 3, 'Thrill Ride', 0, NULL, 9),
+(6, 'HallowSwings', 2, 'Swings', 0, NULL, 6),
+(7, 'Gobbler Getaway', 3, 'Interactive', 0, NULL, 6),
+(8, 'Scooby Doo and the Haunted Mansion', 5, 'Interactive', 0, NULL, 10),
+(9, 'Avalanche', 2, 'Rollercoaster', 0, NULL, 10),
+(10, 'Ghoster Coaster', 1, 'Rollercoaster', 0, NULL, 10),
+(11, 'The Cat in the Hat', 5, 'Interactive', 0, NULL, 5),
+(12, 'The Amazing Adventures of Spider Man', 7, '3D', 0, NULL, 5),
+(13, 'Grover''s Alpine Express', 2, 'Rollercoaster', 0, NULL, 2),
+(14, 'Dry Gulch Railroad', 6, 'Thrill Ride', 0, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -138,43 +139,45 @@ INSERT INTO `parks` (`id`, `name`) VALUES
 
 CREATE TABLE IF NOT EXISTS `rollercoaster` (
   `coaster_id` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` varchar(30) DEFAULT NULL,
+  `coaster_name` varchar(30) DEFAULT NULL,
   `Type` varchar(20) DEFAULT NULL,
   `Speed_mph` int(5) DEFAULT NULL,
   `Height_ft` int(4) DEFAULT NULL,
   `Length_min` int(3) DEFAULT NULL,
-  PRIMARY KEY (`coaster_id`)
+  `park_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`coaster_id`),
+  KEY `park_id` (`park_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `rollercoaster`
 --
 
-INSERT INTO `rollercoaster` (`coaster_id`, `Name`, `Type`, `Speed_mph`, `Height_ft`, `Length_min`) VALUES
-(1, 'Intimidator 305', 'Steel', 90, 305, 3),
-(2, 'Apollo''s Chariot', 'Steel', 73, 210, 2),
-(3, 'Alpengeist', 'Steel', 67, 195, 3),
-(4, 'Corkscrew', 'Steel', 48, 85, 2),
-(5, 'Iron Dragon', 'Steel', 40, 76, 2),
-(6, 'Blue Streak', 'Wooden', 40, 78, 1),
-(7, 'Dragon Challenge - Chinese Fir', 'Steel', 63, 125, 2),
-(8, 'Dragon Challenge - Hungrarian ', 'Steel', 57, 125, 2),
-(9, 'The Incredible Hulk', 'Steel', 67, 110, 2),
-(10, 'Revenge of the Mummy', 'Steel', 45, 0, 3),
-(11, 'Flight of Fear', 'Steel', 54, 74, 2),
-(12, 'The Beast', 'Wooden', 65, 110, 4),
-(13, 'The Son of the Beast', 'Wooden', 78, 218, 3),
-(14, 'Kingda Ka', 'Steel', 128, 456, 1),
-(15, 'The Voyage', 'Wooden', 67, 173, 2),
-(16, 'The Raven', 'Wooden', 50, 110, 1),
-(17, 'The Legend', 'Wooden', 65, 116, 2),
-(18, 'Comet', 'Wooden', 50, 96, 1),
-(19, 'Fahrenheit', 'Steel', 58, 121, 2),
-(20, 'Lightning Racer', 'Steel', 50, 90, 1),
-(21, 'Sooperdooperlooper', 'Steel', 45, 57, 1),
-(22, 'Volcano', 'Steel', 70, 155, 2),
-(23, 'Drop Zone', 'Drop Tower', 72, 272, 2),
-(24, 'Anaconda', 'Steel', 50, 128, 2);
+INSERT INTO `rollercoaster` (`coaster_id`, `coaster_name`, `Type`, `Speed_mph`, `Height_ft`, `Length_min`, `park_id`) VALUES
+(1, 'Intimidator 305', 'Steel', 90, 305, 3, 10),
+(2, 'Apollo''s Chariot', 'Steel', 73, 210, 2, 2),
+(3, 'Alpengeist', 'Steel', 67, 195, 3, 2),
+(4, 'Corkscrew', 'Steel', 48, 85, 2, 3),
+(5, 'Iron Dragon', 'Steel', 40, 76, 2, 4),
+(6, 'Blue Streak', 'Wooden', 40, 78, 1, 3),
+(7, 'Dragon Challenge - Chinese Fir', 'Steel', 63, 125, 2, 4),
+(8, 'Dragon Challenge - Hungrarian ', 'Steel', 57, 125, 2, 4),
+(9, 'The Incredible Hulk', 'Steel', 67, 110, 2, 5),
+(10, 'Revenge of the Mummy', 'Steel', 45, 0, 3, 5),
+(11, 'Flight of Fear', 'Steel', 54, 74, 2, 10),
+(12, 'The Beast', 'Wooden', 65, 110, 4, 7),
+(13, 'The Son of the Beast', 'Wooden', 78, 218, 3, 7),
+(14, 'Kingda Ka', 'Steel', 128, 456, 1, 8),
+(15, 'The Voyage', 'Wooden', 67, 173, 2, 6),
+(16, 'The Raven', 'Wooden', 50, 110, 1, 6),
+(17, 'The Legend', 'Wooden', 65, 116, 2, 6),
+(18, 'Comet', 'Wooden', 50, 96, 1, 3),
+(19, 'Fahrenheit', 'Steel', 58, 121, 2, 3),
+(20, 'Lightning Racer', 'Steel', 50, 90, 1, 3),
+(21, 'Sooperdooperlooper', 'Steel', 45, 57, 1, 3),
+(22, 'Volcano', 'Steel', 70, 155, 2, 10),
+(23, 'Drop Zone', 'Drop Tower', 72, 272, 2, 10),
+(24, 'Anaconda', 'Steel', 50, 128, 2, 10);
 
 -- --------------------------------------------------------
 
@@ -215,22 +218,24 @@ CREATE TABLE IF NOT EXISTS `waterrides` (
   `Type` varchar(20) DEFAULT NULL,
   `Height_ft` int(4) DEFAULT NULL,
   `Speed_mph` int(5) DEFAULT NULL,
-  PRIMARY KEY (`water_id`)
+  `park_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`water_id`),
+  KEY `park_id` (`park_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `waterrides`
 --
 
-INSERT INTO `waterrides` (`water_id`, `Name`, `Length_min`, `Type`, `Height_ft`, `Speed_mph`) VALUES
-(1, 'Shenandoah Log Flume', '3.40', 'water', NULL, NULL),
-(2, 'Escape from Pompeii', '2.10', 'water', NULL, NULL),
-(3, 'Thunder Canyon', '2.30', 'water', NULL, NULL),
-(4, 'Penguin''s Blizzard R', '2.41', 'water', NULL, NULL),
-(5, 'Congo Rapids', '4.00', 'water', NULL, NULL),
-(6, 'Jurassic Park River ', '5.50', 'water', NULL, NULL),
-(7, 'White Water Canyon', '5.20', 'water', NULL, NULL),
-(8, 'Congo Falls', '3.10', 'water', NULL, NULL);
+INSERT INTO `waterrides` (`water_id`, `Name`, `Length_min`, `Type`, `Height_ft`, `Speed_mph`, `park_id`) VALUES
+(1, 'Shenandoah Log Flume', '3.40', 'water', NULL, NULL, 10),
+(2, 'Escape from Pompeii', '2.10', 'water', NULL, NULL, 2),
+(3, 'Thunder Canyon', '2.30', 'water', NULL, NULL, 3),
+(4, 'Penguin''s Blizzard R', '2.41', 'water', NULL, NULL, 11),
+(5, 'Congo Rapids', '4.00', 'water', NULL, NULL, 8),
+(6, 'Jurassic Park River ', '5.50', 'water', NULL, NULL, 4),
+(7, 'White Water Canyon', '5.20', 'water', NULL, NULL, 10),
+(8, 'Congo Falls', '3.10', 'water', NULL, NULL, 7);
 
 -- --------------------------------------------------------
 
@@ -241,6 +246,7 @@ INSERT INTO `waterrides` (`water_id`, `Name`, `Length_min`, `Type`, `Height_ft`,
 CREATE TABLE IF NOT EXISTS `zipcode` (
   `zip_id` int(11) NOT NULL AUTO_INCREMENT,
   `zipcode` int(11) DEFAULT NULL,
+  `park_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`zip_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
@@ -248,18 +254,18 @@ CREATE TABLE IF NOT EXISTS `zipcode` (
 -- Dumping data for table `zipcode`
 --
 
-INSERT INTO `zipcode` (`zip_id`, `zipcode`) VALUES
-(1, 17033),
-(2, 23185),
-(3, 44870),
-(4, 32819),
-(5, 32819),
-(6, 47579),
-(7, 45040),
-(8, 8527),
-(9, 32830),
-(10, 23047),
-(11, 20721);
+INSERT INTO `zipcode` (`zip_id`, `zipcode`, `park_id`) VALUES
+(1, 17033, 1),
+(2, 23185, 2),
+(3, 44870, 3),
+(4, 32819, 4),
+(5, 32819, 5),
+(6, 47579, 6),
+(7, 45040, 7),
+(8, 8527, 8),
+(9, 32830, 9),
+(10, 23047, 10),
+(11, 20721, 11);
 
 --
 -- Constraints for dumped tables
