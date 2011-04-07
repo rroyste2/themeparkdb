@@ -8,7 +8,10 @@
 -- PHP Version: 5.3.1
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
+DROP DATABASE IF EXISTS themeparks;
+CREATE DATABASE IF NOT EXISTS themeparks;
+GRANT ALL PRIVILEGES ON themeparks.* to 'themeguru'@'localhost' identified by 'parks';
+USE themeparks;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
