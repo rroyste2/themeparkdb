@@ -34,7 +34,7 @@ License: Creative Commons Attribution
     <div id="nav">
     	<ul class="sf-menu dropdown">
         	<li><a href="index.php">Home</a></li>
-            <li><a " href="parks.php">Parks</a></li>
+            <li><a href="parks.php">Parks</a></li>
             <li><a class="has_submenu" href="rides.php">Rides</a>
             	<ul>
                 	<li><a href="rides.php">Roller Coasters</a></li>
@@ -50,9 +50,11 @@ License: Creative Commons Attribution
 	<div id="body">            
 		<div id="content">
             <div class="box">
+		<h3>Search For A Park</h3>
+		<fieldset>
 		<form action="searchPark.php" method="get">
 			Enter a Query: <input type=text name=query /><input type=submit value="Search" />
-		</form><br /><hr />
+		</form></fieldset><br /><hr />
 		<!--TODO: Query Code -->
             </div>
         </div>
