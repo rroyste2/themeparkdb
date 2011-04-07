@@ -42,7 +42,11 @@ License: Creative Commons Attribution
             	
             </li>
             <li class="selected"><a class="has_submenu" href="rides.php">Rides</a>
-            	
+            <ul>
+                	<li><a href="showcoasters.php">Coasters</a></li>
+                    <li><a href="showwaterrides.php">Water rides</a></li>
+                    <li><a href="showfamilyrides.php">Family rides</a></li>
+                </ul>	
             </li>
             <li><a href="#">Search Parks</a></li>
             <li><a class="has_submenu" href="#">User Panel</a>
@@ -60,7 +64,7 @@ License: Creative Commons Attribution
 		<li><a class="has_submenu" href="index.php">Edit Rides</a>
 			<ul>
                 	<li><a href="addRide.html">Add Ride</a></li>
-                    <li><a href="deleteRide.html">Delete Ride</a></li>
+                    <li><a href="deleteRide2.html">Delete Ride</a></li>
                 </ul>
             </li>
 			<?php

@@ -1,5 +1,5 @@
-<?php
-session_start();
+<?php 
+ session_start();
 ?>
 <?php
    include('db_connect.php');
@@ -18,22 +18,70 @@ session_start();
 <script type="text/javascript" src="js/superfish.js"></script>
 
 <script type="text/javascript" src="js/custom.js"></script>
+
+<!--
+widget, a free CSS web template by spyka Webmaster (www.spyka.net)
+
+Download: http://www.spyka.net/web-templates/widget/
+
+License: Creative Commons Attribution
+//-->
 </head>
 
-<body class="homepage">
-<div id="container"> 
+<body class="noheader">
+<div id="container">
 	<div id="header">
     	<h1><a href="/">Themepark<strong>Database</strong></a></h1>
         <h2>The ultimate source for themepark and coaster information.</h2>
-		
-		
         <div class="clear"></div>
     </div>
-	 <div id="body">            
+    <div id="nav">
+    	<ul class="sf-menu dropdown">
+        	<li><a href="index.php">Home</a></li>
+            <li class="selected"><a class="has_submenu" href="parks.php">Parks</a>
+            	
+            </li>
+            <li><a class="has_submenu" href="rides.php">Rides</a>
+            	<ul>
+                	<li><a href="showcoasters.php">Coasters</a></li>
+                    <li><a href="showwaterrides.php">Water rides</a></li>
+                    <li><a href="showfamilyrides.php">Family rides</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Search Parks</a></li>
+            <li><a class="has_submenu" href="#">User Panel</a>
+				<ul>
+		<!-- These are the default options if there is no user logged in -->
+                    <li><a href="login.html">Log On</a></li>
+                    <li><a href="register.html">Register</a></li>
+					<li><a href="logout.php">Log Off</a></li>
+                </ul>
+            </li>
+					<?php
+		if(isset($_SESSION['username'])){?>
+		<li><a class="has_submenu" href="index.php">Edit Parks</a>
+			<ul>
+                	<li><a href="addPark.html">Add Park</a></li>
+                    <li><a href="deletePark.html">Delete park</a></li>
+                </ul>
+            </li>
+			<?php
+			}
+			?>
+				
+            </li>
+			
+			
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+        <div id="body">            
             <div id="content">
                 <div class="box">
 				
 	 <form method="post" action="addPark.php">
+	 
 		<table>
 		<tr><td>Park name <input type = "text" name = "park" size = '50'></td></tr>
 		<tr><td>City<input type="text" name="city" size="20" id = "city"></td></tr>
@@ -59,7 +107,8 @@ session_start();
 		<tr><td>Picture <input type = "text" name = "picture" size = '50'</td></tr>
 		<tr><td>URL <input type = "text" name = "url" size = '50'</td></tr>
 					
-					
+			</div>
+<		
 		</table>
 
 			<input type="submit" value="Add Park" name="submit" />

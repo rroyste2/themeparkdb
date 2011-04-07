@@ -20,9 +20,6 @@ include('db_connect.php');
 	adult
 	<?php
 	echo  $adult;
-
-
-
 ?>
 
 <?php

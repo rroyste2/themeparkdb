@@ -57,7 +57,19 @@ License: Creative Commons Attribution
 					<li><a href="logout.php">Log Off</a></li>
                 </ul>
             </li>
-			
+					<?php
+		if(isset($_SESSION['username'])){?>
+		<li><a class="has_submenu" href="index.php">Edit Parks</a>
+			<ul>
+                	<li><a href="addPark.html">Add Park</a></li>
+                    <li><a href="deletePark.html">Delete park</a></li>
+                </ul>
+            </li>
+			<?php
+			}
+			?>
+				
+            </li>
 			
 			
             <li><a href="#">Contact</a></li>
