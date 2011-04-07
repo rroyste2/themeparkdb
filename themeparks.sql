@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 06, 2011 at 05:21 PM
+-- Generation Time: Apr 06, 2011 at 09:46 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `general_info` (
   KEY `park_id_2` (`park_id`),
   KEY `park_id_3` (`park_id`),
   KEY `park_id_4` (`park_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `general_info`
@@ -182,7 +182,7 @@ INSERT INTO `rollercoaster` (`coaster_id`, `Name`, `Type`, `Speed_mph`, `Height_
 CREATE TABLE IF NOT EXISTS `users` (
   `userId` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`userId`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
