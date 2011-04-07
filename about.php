@@ -78,7 +78,16 @@ if(isset($_SESSION['username'])){?>
 	<div id="body">            
 		<div id="content">
             <div class="box">
-		
+		<image style="float: right; display: block" src="http://www.carewelltravels.com/newcarewell/packageImage/4c4ab889ed9610724201045521.jpg" height="300px" width="300px" />
+		<h1>About Us</h1><hr /><br />
+		<p>We are a group of Swiss Engineers on a mission to show the world the best theme parks in the US.
+		We hope to expand our horizons to the world eventually. The information in this site was carefully
+		and painstakenly collected for your personal enjoyment. We have also added the ability to create
+		an account with us so that you can also contribute to our ever expanding repository of theme parks,
+		rides, attractions, and whatever else you might hope to find at a themepark.</p>
+		<hr />
+		<h4>Contact Us</h4>
+		<address><a href="mailto:SwissArmyEngineerGenerals@gmail.com">Swiss Army Engineers</a></address>
             </div>
         </div>
         <?PHP
